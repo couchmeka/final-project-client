@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import Homepage from "../Pages/Homepage";
 
 const SearchBar = (props) => {
   const [searchInput, setSearchInput] = useState("");
@@ -81,6 +81,7 @@ const SearchBar = (props) => {
 
   return (
     <div>
+      <Homepage/>
       <input
         type="search"
         placeholder="Search here"
@@ -110,43 +111,39 @@ const SearchBar = (props) => {
                   <textarea
                     placeholder={ticket.text}
                     type="text"
-                    
                     onChange={(e) => {
                       setText(e.target.value);
                     }}
                   />
-                 
                 )}
-                </Card.Text>
-                <Card.Text style={{color:"black"}}>
+              </Card.Text>
+              <Card.Text style={{ color: "black" }}>
                 {!isEditing && <b>Author: {ticket.author}</b>}
                 {isEditing && (
                   <input
                     placeholder={ticket.author}
                     type="text"
-                    
                     onChange={(e) => {
                       setAuthor(e.target.value);
                     }}
                   />
                 )}
               </Card.Text>
-             
             </Card.Body>
             <Card.Footer style={{ color: "grey" }}>
-                {!isEditing && <b>Categories: {ticket.categories}</b>}
-                {isEditing && (
-                  <input
-                    placeholder={ticket.categories}
-                    type="text"
-                    
-                    onChange={(e) => {
-                      setCategories(e.target.value);
-                    }}
-                  />
-                )}
-                <br/>ID {ticket.id}
-              </Card.Footer>
+              {!isEditing && <b>Categories: {ticket.categories}</b>}
+              {isEditing && (
+                <input
+                  placeholder={ticket.categories}
+                  type="text"
+                  onChange={(e) => {
+                    setCategories(e.target.value);
+                  }}
+                />
+              )}
+              <br />
+              ID {ticket.id}
+            </Card.Footer>
             <Card.Footer>
               <Button
                 variant="danger"
@@ -175,7 +172,6 @@ const SearchBar = (props) => {
                     id="comment"
                     type="text"
                     placeholder="Enter comment"
-                    
                     onChange={(e) => {
                       setComment(e.target.value);
                     }}
@@ -196,8 +192,11 @@ const SearchBar = (props) => {
                   </div>
                   <Button
                     variant="warning"
-                    onClick={() => handleUpdateComment(ticket.id, comment)
-                    && navigate("/ticket") && console.log('Success')}
+                    onClick={() =>
+                      handleUpdateComment(ticket.id, comment) &&
+                      navigate("/ticket") &&
+                      console.log("Success")
+                    }
                   >
                     Add comment
                   </Button>

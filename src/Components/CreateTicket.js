@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Homepage from "../Pages/Homepage";
 
 const TicketForm = ({ onSubmit }) => {
   const [title, setTitle] = useState("");
@@ -45,6 +46,8 @@ const navigate = useNavigate()
   };
 
   return (
+    <div>
+      <Homepage/>
     <form onSubmit={handleSubmit}>
       <label>
         <h3>Title:</h3>
@@ -99,6 +102,7 @@ const navigate = useNavigate()
 
       <button type="submit">Submit</button>
     </form>
+    </div>
   );
 };
 
