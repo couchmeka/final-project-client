@@ -1,5 +1,6 @@
 
 import { Container, Row, Col, Card, Tab } from "react-bootstrap";
+import { FaRegUser, FaTicketAlt, FaPaperclip, FaBook, FaComments } from "react-icons/fa";
 
 const DisplayTicket = (props) => {
   const { tickets } = props;
@@ -9,7 +10,7 @@ const DisplayTicket = (props) => {
   return (
     <div className="ticket-grid">
   <Container fluid>
-    <Row xs={1} sm={2} md={3} lg={4} className="gy-4">
+    <Row xs={1} sm={2} md={3} lg={3} className="gy-4">
       {tickets.map((ticket, index) => {
         return (
           <Col key={index}>
@@ -20,13 +21,13 @@ const DisplayTicket = (props) => {
               className="ticket-card mb-4 hover-bounce"
             >
               <Card.Header style={{ color: "blue" }}>
-                {ticket.title}
+                {ticket.title} <FaTicketAlt/>
               </Card.Header>
               <Card.Body>
                 <Card.Text style={{ color: "black" }}>
                   {ticket.text}
                 </Card.Text>
-                <Card.Footer>Categories: {ticket.categories}</Card.Footer>
+                <Card.Footer style={{color:"grey"}}><b>Categories:</b><FaPaperclip/> {ticket.categories}</Card.Footer>
                 <Tab.Content>
                   <Card
                     key={ticket.id}
@@ -34,14 +35,14 @@ const DisplayTicket = (props) => {
                     className="ticket-card mb-4 hover-bounce"
                   >
                     <Card.Header style={{ color: "blue" }}>
-                      Comment Card
+                      Comments <FaBook/>
                     </Card.Header>
                     <Card.Body>
                       <Card.Title style={{ color: "grey" }}>
-                        Comment:{ticket.comments.comment}
+                        <FaComments/>{ticket.comments.comment}
                       </Card.Title>
-                      <Card.Text style={{ color: "black" }}>
-                        Author:{ticket.comments.createdBy}
+                      <Card.Text style={{ color: "black"}}>
+                        <FaRegUser/> {ticket.comments.createdBy}
                       </Card.Text>
                     </Card.Body>
                   </Card>

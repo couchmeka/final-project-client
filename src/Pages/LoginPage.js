@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/Auth";
+import { Button } from "react-bootstrap";
 
 const LoginPage = (props) => {
   const [email, setEmail] = useState("");
@@ -27,7 +28,7 @@ const LoginPage = (props) => {
           setPassword(e.target.value);
         }}
       />
-      <button
+      <Button
         onClick={async () => {
           //login in using auth context
           const loginResult = await auth.login(email, password);
@@ -41,7 +42,7 @@ const LoginPage = (props) => {
         }}
       >
         Login
-      </button>
+      </Button>
     </div>
   );
 };

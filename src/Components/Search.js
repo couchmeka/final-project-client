@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+
 
 const SearchBar = (props) => {
   const [searchInput, setSearchInput] = useState("");
@@ -40,7 +40,7 @@ const SearchBar = (props) => {
       })
       .then((response) => {
         console.log("Resource updated successfully");
-        navigate("/");
+        navigate("/ticket");
       })
       .catch((error) => {
         console.error("Error updating resource:", error);
@@ -49,8 +49,7 @@ const SearchBar = (props) => {
 
   const handleUpdateComment = async (ticketId) => {
     const URL = process.env.REACT_APP_URL_ENDPOINT;
-    console.log(comment);
-    console.log(creator);
+
     await axios
       .put(`${URL}/tickets/comments/${ticketId}`, {
         comment: comment,
@@ -88,7 +87,7 @@ const SearchBar = (props) => {
         value={searchInput}
         onChange={handleChange}
       />
-      <button>Search</button>
+      <Button>Search</Button>
       <div className="card-columns">
         {searchItems.map((ticket, index) => (
           <Card style={{ width: "45rem", margin: "10px" }} key={index}>
@@ -98,7 +97,6 @@ const SearchBar = (props) => {
                 <input
                   placeholder={ticket.title}
                   type="text"
-                  value={title}
                   onChange={(e) => {
                     setTitle(e.target.value);
                   }}
@@ -112,7 +110,7 @@ const SearchBar = (props) => {
                   <textarea
                     placeholder={ticket.text}
                     type="text"
-                    value={text}
+                    
                     onChange={(e) => {
                       setText(e.target.value);
                     }}
@@ -126,7 +124,7 @@ const SearchBar = (props) => {
                   <input
                     placeholder={ticket.author}
                     type="text"
-                    value={author}
+                    
                     onChange={(e) => {
                       setAuthor(e.target.value);
                     }}
@@ -141,7 +139,7 @@ const SearchBar = (props) => {
                   <input
                     placeholder={ticket.categories}
                     type="text"
-                    value={categories}
+                    
                     onChange={(e) => {
                       setCategories(e.target.value);
                     }}
@@ -177,7 +175,7 @@ const SearchBar = (props) => {
                     id="comment"
                     type="text"
                     placeholder="Enter comment"
-                    value={comment}
+                    
                     onChange={(e) => {
                       setComment(e.target.value);
                     }}
@@ -191,7 +189,6 @@ const SearchBar = (props) => {
                       id="author"
                       type="text"
                       placeholder="Enter author"
-                      value={creator}
                       onChange={(e) => {
                         setCreator(e.target.value);
                       }}
@@ -199,7 +196,8 @@ const SearchBar = (props) => {
                   </div>
                   <Button
                     variant="warning"
-                    onClick={() => handleUpdateComment(ticket.id, comment)}
+                    onClick={() => handleUpdateComment(ticket.id, comment)
+                    && navigate("/ticket") && console.log('Success')}
                   >
                     Add comment
                   </Button>

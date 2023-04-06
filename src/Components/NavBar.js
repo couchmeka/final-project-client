@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaUserNinja } from "react-icons/fa";
 import { SidebarData } from "./SidebarData";
 
 const Sidebar = () => {
@@ -15,7 +15,7 @@ const Sidebar = () => {
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
-        <h1>Ticketing App</h1>
+        <h1 style={{fontSize: "50px"}}>Ticketing Ninja<FaUserNinja/></h1>
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={hideSidebar}>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../Hooks/Auth";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const RegistrationPage = (props) => {
   const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ const RegistrationPage = (props) => {
           setPassword(e.target.value);
         }}
       />
-      <button
+      <Button
         onClick={async () => {
           const registerResult = await auth.register(email, password);
           if (registerResult.success) {
@@ -38,7 +39,7 @@ const RegistrationPage = (props) => {
         }}
       >
         Signup
-      </button>
+      </Button>
     </div>
   );
 };

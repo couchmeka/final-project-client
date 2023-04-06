@@ -8,7 +8,7 @@ export const SidebarData = [
     className: "nav-text",
   },
   {
-    title: "Login",
+    title: "User",
     path: "/login",
     icon: <FaRegUser />,
     className: "nav-text",
