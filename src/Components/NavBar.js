@@ -15,7 +15,10 @@ const Sidebar = () => {
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
-        <h1 style={{fontSize: "50px"}}>Ticketing Ninja<FaUserNinja/></h1>
+        <h1 style={{ fontSize: "50px" }}>
+          Ticketing Ninja
+          <FaUserNinja />
+        </h1>
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={hideSidebar}>
