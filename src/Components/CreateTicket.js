@@ -36,7 +36,8 @@ const navigate = useNavigate()
         setText("");
         setAuthor("");
         setCategories([]);
-        navigate("/ticket")
+        navigate("/ticket");
+        window.location.reload(false);
       } else {
         console.log("Error creating Ticket item.");
       }

@@ -1,4 +1,6 @@
 import { Container, Row, Col, Card, Tab } from "react-bootstrap";
+
+
 import {
   FaRegUser,
   FaTicketAlt,
@@ -10,7 +12,10 @@ import {
 import Homepage from "../Pages/Homepage";
 
 const DisplayTicket = (props) => {
+  
   const { tickets } = props;
+
+
 
   console.log(props);
 
