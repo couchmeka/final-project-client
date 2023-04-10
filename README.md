@@ -14,6 +14,8 @@ Ticket Ninja is a full Stack application app that include the following componen
 # Getting Started with React App
 
 This project removes the node modules. In order to run React you will need to run ```npm install```
+then 
+```npm start```
 
 ## Available Scripts
 
