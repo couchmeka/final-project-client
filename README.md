@@ -1,6 +1,21 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="830" alt="Screenshot 2023-04-10 at 12 08 59 PM" src="https://user-images.githubusercontent.com/21232416/230943191-43f28283-2b42-4774-b6d7-855a9c64aaf9.png">
+
+Ticket Ninja is a full Stack application app that include the following components 
+* [Back-End](https://github.com/couchmeka/final-project-server/tree/master)
+* Create and Update a Ticket
+* Create Comments on Tickets
+* Delete A Ticket
+* Connect to MongoDB for ticket storage
+* Connect and Login to MongoDB for Authentication use BcrypT
+* Read Tickets 
+
+
+# Getting Started with React App
+
+This project removes the node modules. In order to run React you will need to run ```npm install```
+then 
+```npm start```
 
 ## Available Scripts
 
