@@ -8,7 +8,9 @@ const TicketForm = ({ onSubmit }) => {
   const [text, setText] = useState("");
   const [author, setAuthor] = useState("");
   const [categories, setCategories] = useState([]);
+
 const navigate = useNavigate()
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const urlEndPoint = process.env.REACT_APP_URL_ENDPOINT;

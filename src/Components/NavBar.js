@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaBars, FaUserNinja } from "react-icons/fa";
 import { SidebarData } from "./SidebarData";
 
+
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
 
@@ -15,6 +16,7 @@ const Sidebar = () => {
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
+
         <h1 style={{ fontSize: "50px" }}>
           Ticketing Ninja
           <FaUserNinja />

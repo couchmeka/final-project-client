@@ -1,5 +1,5 @@
 import { Container, Row, Col, Card, Tab } from "react-bootstrap";
-
+import { motion } from "framer-motion";
 
 import {
   FaRegUser,
@@ -20,7 +20,7 @@ const DisplayTicket = (props) => {
   console.log(props);
 
   return (
-    
+    <motion.div layout >
     <div className="ticket-grid">
       <Homepage/>
       <Container fluid>
@@ -74,6 +74,7 @@ const DisplayTicket = (props) => {
         </Row>
       </Container>
     </div>
+    </motion.div>
   );
 };
 

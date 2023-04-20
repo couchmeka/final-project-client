@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Hooks/Auth";
 import { Button } from "react-bootstrap";
 
@@ -7,11 +7,28 @@ const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
+  const [successLogin, setSuccess] = useState(false)
   const auth = useAuth(); //access the authentication context
   const navigate = useNavigate(); // be able to navigate to home on login
 
   return (
+    
     <div>
+      {!successLogin ? (
+
+      
+        <section>
+          <h1>
+            You Are Logged in!
+          </h1>
+          <br/>
+          <p>
+          <Button as={Link} to="/ticket" variant="primary">Go to Tickets</Button>
+          </p>
+
+        </section>
+      ) : (
+        <section>
       <h1>Login Page</h1>
       <h3>{loginMessage}</h3>
       <label>email</label>
@@ -34,7 +51,9 @@ const LoginPage = (props) => {
           const loginResult = await auth.login(email, password);
           console.log("button onclick loginResult: ", loginResult);
           if (loginResult.success) {
-            navigate("/login");
+            setSuccess(true)
+            navigate("/ticket");
+            
           }
           if (!loginResult.success) {
             setLoginMessage(loginResult.message);
@@ -43,6 +62,7 @@ const LoginPage = (props) => {
       >
         Login
       </Button>
+      </section>)}
     </div>
   );
 };
